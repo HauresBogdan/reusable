@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+.progress-bar-exterior {
+    height: 1.7rem;
+    width: 30rem;
+    background-color: grey;
+    border-radius: 0.25rem;
+    border: 2px solid grey;
+}
+
+#Loading {
+    font-family: 'Roboto Mono', monospace;
+    line-height: 1px;
+}
+
+.inner-progress-bar {
+    height: 1.7rem;
+    width: 2rem;
+    background: linear-gradient(rgb(57, 201, 28), green);
+    border-radius: 0.25rem 0 0 0.25rem;
+    animation-name: Loading;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes Loading {
+    from {
+        width: 2rem;
+    }
+
+    to {
+        width: 30rem;
+    }
+}
+
+.flex-this-to-bar-width {
+    display: flex;
+    justify-content: space-between;
+    width: 30rem;
+
+
+}
