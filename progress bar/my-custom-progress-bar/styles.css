@@ -2,16 +2,36 @@
 
 .progress-bar-exterior {
     height: 1.7rem;
-    width: 30rem;
+    width: 17rem;
     background-color: grey;
     border-radius: 0.25rem;
     border: 2px solid grey;
 }
-
-#Loading {
+body {
     font-family: 'Roboto Mono', monospace;
-    line-height: 1px;
 }
+.loading-image img {
+    height: 25px;
+    position: relative;
+    top:15px;
+    left: 5px;
+    
+}
+
+.outer-rim {
+    border: 1px solid grey;
+    border-radius: 0.25rem;
+    padding: 0px 10px 10px 10px;
+    display: inline-block;
+    
+
+}
+
+.percentage-and-logo {
+    display: flex;
+}
+
+
 
 .inner-progress-bar {
     height: 1.7rem;
@@ -29,14 +49,14 @@
     }
 
     to {
-        width: 30rem;
+        width: 17rem;
     }
 }
 
 .flex-this-to-bar-width {
     display: flex;
     justify-content: space-between;
-    width: 30rem;
+    width: 17rem;
 
 
 }

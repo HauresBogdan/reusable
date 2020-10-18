@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- progress bar -->
+    <div class="outer-rim">
+      <div class="flex-this-to-bar-width">
+        <p class="Loading">Loading...</p>
+        <div class="percentage-and-logo">
+          <p class="Percentage">0%</p>
+          <div class="loading-image">
+            <img src="progress.svg" alt="loading-image" />
+          </div>
+        </div>
+      </div>
+
+      <div class="progress-bar-exterior" id="ext">
+        <div class="inner-progress-bar" id="bar">
+          <div class="inner-percentage">0%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- javascript for progres bar -->
+    <script>
+      var percentage = 0;
+      setInterval(() => {
+        //if you want it to stop at 70% per example put here 70 instead of 100
+        if (percentage < 70) {
+          percentage++;
+          document.querySelector(".inner-progress-bar").innerText = `${percentage}%\u00a0`;
+          document.querySelector(".Percentage").innerText = `${percentage}%`;
+        }
+        //if you want it to stop at 70% per example put here 70 instead of 100
+        // this will be executed when percentage will 
+        if (percentage == 70) {
+          document.querySelector(".loading-image").innerHTML ="<img src='done.svg' alt='loading-image'>";
+          document.querySelector(".Loading").setAttribute("style", "--message-color: green");
+          document.querySelector(".Loading").innerText = "Done!";
+        }
+        //for every 20 miliseconds  add percentage to variable --inner-width in CSS
+        document.querySelector(".inner-progress-bar").setAttribute("style", `--inner-width: ${percentage}`);
+      }, 20);
+    </script>
+  </body>
+</html>

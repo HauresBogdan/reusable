@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- bogus progress bar -->
+    <div class="outer-rim">
+      <div class="flex-this-to-bar-width">
+        <p class="Loading">Processing...</p>
+        <div class="percentage-and-logo">
+          <p class="Percentage">0%</p>
+          <div class="loading-image"
+            ><img src="progress.svg" alt="loading-image"
+          /></div>
+        </div>
+      </div>
+      
+      <!-- <p class="measure"><img src="chart.svg" alt="measureicon"/> Size<span>- Small</p> -->
+      <p class="measure"> Size<span>- Small</p>
+      <div class="progress-bar-exterior" >
+        <div class="inner-progress-bar" ></div>
+      </div>
+    </div>
+
+
+     <!-- true progress bar -->
+     <div class="outer-rim2">
+      <div class="flex-this-to-bar-width2">
+        <p class="Loading2">Processing...</p>
+        <div class="percentage-and-logo2">
+          <p class="Percentage2">0%</p>
+          <div class="loading-image2"
+            ><img src="progress.svg" alt="loading-image"
+          /></div>
+        </div>
+      </div>
+      <!-- <p class="measure"><img src="chart.svg" alt="measureicon"/> Size<span>- Medium</p> -->
+        <p class="measure"> Size<span>- Medium</p>
+     
+
+      <div class="progress-bar-exterior2" >
+        <div class="inner-progress-bar2" ></div>
+      </div>
+    </div>
+
+    
+  </body>
+  <!-- javascript for progress-bar -->
+  <script>
+    var percentage = 0;
+    var percentage2 = 0;
+    var bogusbar = document.querySelector(".inner-progress-bar");
+    var truebar = document.querySelector(".inner-progress-bar2");
+    function randomIntFromInterval(min, max) { // min and max included 
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+    var randompercentage =  randomIntFromInterval(35, 60);
+      setInterval(() => {
+        
+        //if you want it to stop at 70% per example put here 70 instead of 100
+        if (percentage < randompercentage) {
+          percentage++;
+          //uncoment next line if you want percentage inside of loadingbar also
+          //bogusbar.innerText = `${percentage}%\u00a0`;
+          document.querySelector(".Percentage").innerText = `${percentage}%`;
+        }
+        //if you want it to stop at 70% per example put here 70 instead of 100
+        // this will be executed when percentage full
+        if (percentage == randompercentage) {
+          document.querySelector(".loading-image img").src ="alert.svg";
+          //uncoment this if you want to set a color after progress is done to text
+          //document.querySelector(".Loading").setAttribute("style", "--message-color: #ba9134");
+          document.querySelector(".Loading").innerText = "Almost!";   
+          bogusbar.setAttribute("style", bogusbar.getAttribute('style')+'; --bogus-color: linear-gradient(rgb(161, 172, 159), rgb(93, 107, 93))');     
+        }
+       
+        //for every 20 miliseconds  add percentage to variable --inner-width in CSS
+        bogusbar.setAttribute("style", `${bogusbar.getAttribute('style')}; --inner-width: ${percentage}`);
+        
+       
+
+
+//if you want it to stop at 70% per example put here 70 instead of 100
+      if (percentage2 < 100) {
+          percentage2++;
+          //uncoment next line if you want percentage inside of loadingbar also
+         // truebar.innerText = `${percentage2}%\u00a0`;
+          document.querySelector(".Percentage2").innerText = `${percentage2}%`;
+        }
+        //if you want it to stop at 70% per example put here 70 instead of 100
+        // this will be executed when percentage full
+        if (percentage2 == 100) {
+          document.querySelector(".loading-image2 img").src ="done.svg";
+          //uncoment this if you want to set a color after progress is done to text
+          //document.querySelector(".Loading2").setAttribute("style", "--message-color: green");
+          document.querySelector(".Loading2").innerText = "Best fit!";
+        }
+        //for every 20 miliseconds  add percentage to variable --inner-width in CSS
+        truebar.setAttribute("style", `--inner-width: ${percentage2}`);
+
+
+      }, 40);
+
+      
+
+
+
+
+  </script>
+</html>
