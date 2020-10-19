@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue CDN test</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+  </head>
+  <body>
+    <h1>Hello world</h1>
+    <div id="app">{{ message }} {{myname}}</div>
+
+    <h1>Bind to elements atribute</h1>
+    <div id="app-2">
+      <span v-bind:title="message">
+        Hover your mouse over me for a few seconds to see my dynamically bound
+        title!
+      </span>
+    </div>
+
+    <h1>Conditionals and Loops</h1>
+    <div id="app-3">
+      <span v-if="seen"
+        >Now here you see me (Type app.3.seen in console to disapear)</span
+      >
+      <span v-if="!seen">Good</span>
+    </div>
+
+    <h1>For loop (list made from looping an array )</h1>
+    <div id="app-4">
+      <ol>
+        <li v-for="item in todos">{{ item.text }}</li>
+      </ol>
+    </div>
+    <p>
+      In the console, enter app4.todos.push({ text: 'New item' }). You should
+      see a new item appended to the list.
+    </p>
+
+    <h1>Handling User Input</h1>
+    <div id="app-5">
+      <p>{{ message }}</p>
+      <p>{{ palindrom }}</p>
+      <button v-on:click="reverseMessage">Reverse Message</button>
+    </div>
+
+    <div id="app-6">
+        <p>{{ message }}</p>
+        <input v-model="message">
+        <button v-on:click="consoleLogValue">Console Log Value Test</button>
+    </div>
+
+    <!-- javascript -->
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          message: "Hello from Vue!",
+          myname: "Bogdan",
+        },
+      });
+
+      var app2 = new Vue({
+        el: "#app-2",
+        data: {
+          message: "You loaded this page on " + new Date().toLocaleString(),
+        },
+      });
+
+      var app3 = new Vue({
+        el: "#app-3",
+        data: {
+          seen: true,
+        },
+      });
+
+      var app4 = new Vue({
+        el: "#app-4",
+        data: {
+          todos: [
+            { text: "Learn JavaScript" },
+            { text: "Learn Vue" },
+            { text: "Build something awesome" },
+          ],
+        },
+      });
+
+      var app5 = new Vue({
+        el: "#app-5",
+        data: {
+          message: "ho ho ho it's a me :)",
+          palindrom: "ele fac cafele",
+        },
+        methods: {
+          reverseMessage: function () {
+            this.message = this.message.split("").reverse().join("");
+            this.palindrom = this.palindrom.split("").reverse().join("");
+          },
+        },
+      });
+
+      var app6 = new Vue({
+        el: "#app-6",
+        data: {
+          message: 'Hello Vue!'
+        },
+        methods: {
+          consoleLogValue: function() {
+            console.log(this.message);
+          }
+        }
+      });      
+    </script>
+  </body>
+</html>
