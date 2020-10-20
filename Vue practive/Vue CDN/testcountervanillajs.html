@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hi</h1>
+    <h1>Counter <span id="number">0</span></h1>
+
+
+    <script>
+
+        var counter = 0;
+        var number = document.getElementById('number');
+         setInterval(() => {
+            this.counter++;
+            number.innerText = counter;
+            console.log(counter);
+          }, 1000);
+    </script>
+    
+</body>
+</html>
