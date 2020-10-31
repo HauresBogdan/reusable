@@ -1,5 +1,5 @@
 //find in array
-//const arr = [1,2,3,4];
+const arr = [1,2,4,3];
 const users = [
     {id: 1, name: 'John'},
     {id: 2, name: 'Martha'},
@@ -11,6 +11,14 @@ const user = {
       id: 1,
       name: 'John',
       age:20};
+
+
+ const testreducer = arr.reduce((acc,el) => acc + el);
+ console.log("reducervalue:",testreducer);
+
+ console.log("sorted array", arr.sort());
+
+ console.log("filter array", arr.filter((el)=> el > 2 ));
 
 //const checkIfArray  = Array.isArray(arr);
 //console.log(checkIfArray);
